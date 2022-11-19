@@ -1,15 +1,15 @@
 package com.example.movieapp.common.data.cache.model
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
+@Entity
 data class CachedMovie(
-    val title:String,
-    val popularity:Double,
-    @PrimaryKey
-    val id: Int ,
-    val releaseDate: Date,
+    val title: String,
+    @PrimaryKey(autoGenerate = false)
+    val id: Int,
+    val releaseDate: String,
     val rating: Double,
-    val image:String,
+    val image: String,
     val overView: String
 )

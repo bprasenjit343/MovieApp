@@ -6,6 +6,7 @@ import com.example.movieapp.common.data.cache.Cache
 import com.example.movieapp.common.data.cache.MovieDatabase
 import com.example.movieapp.common.data.cache.RoomCache
 import com.example.movieapp.common.data.cache.daos.MoviesDao
+import com.example.movieapp.common.utils.getJsonFromAssets
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -40,6 +41,11 @@ abstract class CacheModule {
         fun provideAnimalsDao(
             movieDatabase: MovieDatabase
         ): MoviesDao = movieDatabase.moviesDao()
+
+        @Provides
+        fun providesSampleData(@ApplicationContext context: Context):String{
+            return getJsonFromAssets(context,"Movies.json")
+        }
 
     }
 }

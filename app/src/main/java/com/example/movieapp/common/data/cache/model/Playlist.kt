@@ -1,6 +1,10 @@
 package com.example.movieapp.common.data.cache.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Playlist(
-    val name: String,
-    val movies: List<CachedMovie>
+    @PrimaryKey(autoGenerate = false)
+    val playlistName: String
 )
